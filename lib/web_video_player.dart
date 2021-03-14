@@ -9,12 +9,14 @@ class WebVideoPlayer extends StatelessWidget {
     this.startAt = 000,
     this.autoPlay = false,
     this.controls = true,
+    this.hideContextMenu = false,
   }) : super(key: key);
 
   final String src;
   final double startAt;
   final bool autoPlay;
   final bool controls;
+  final bool hideContextMenu;
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -26,6 +28,7 @@ class WebVideoPlayer extends StatelessWidget {
           startAt: startAt,
           autoplay: autoPlay,
           controls: controls,
+          hideContextMenu: hideContextMenu,
         );
       },
     );

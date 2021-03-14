@@ -3,7 +3,7 @@ import 'dart:html';
 import 'package:flutter/material.dart';
 
 class WebVideoElement extends StatefulWidget {
-  const WebVideoElement({Key key, this.src, this.width, this.height, this.startAt,this.autoplay,this.controls})
+  const WebVideoElement({Key key, this.src, this.width, this.height, this.startAt,this.autoplay,this.controls,this.hideContextMenu})
       : super(key: key);
 
   final int width;
@@ -12,6 +12,7 @@ class WebVideoElement extends StatefulWidget {
   final double startAt;
   final bool autoplay;
   final bool controls;
+  final bool hideContextMenu;
 
   @override
   _WebVideoElementState createState() => _WebVideoElementState();
@@ -30,7 +31,9 @@ class _WebVideoElementState extends State<WebVideoElement> {
             ..src = widget.src + '#t=${widget.startAt}'
             ..autoplay = widget.autoplay
             ..controls = widget.controls
-            ..style.border = 'none';
+            ..style.border = 'none'
+            ..attributes["oncontextmenu"] =
+            widget.hideContextMenu ? "return false;" : null;
           return video ;
         });
   }
