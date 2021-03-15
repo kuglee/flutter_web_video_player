@@ -10,6 +10,7 @@ class WebVideoPlayer extends StatelessWidget {
     this.autoPlay = false,
     this.controls = true,
     this.hideContextMenu = false,
+    this.poster = "",
   }) : super(key: key);
 
   final String src;
@@ -17,6 +18,7 @@ class WebVideoPlayer extends StatelessWidget {
   final bool autoPlay;
   final bool controls;
   final bool hideContextMenu;
+  final String poster;
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -29,6 +31,7 @@ class WebVideoPlayer extends StatelessWidget {
           autoplay: autoPlay,
           controls: controls,
           hideContextMenu: hideContextMenu,
+          poster: poster,
         );
       },
     );
